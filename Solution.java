@@ -103,6 +103,48 @@ public class Solution {
         return list;
         
     }
+        public int removeElement(int[] A, int elem) {
+    	 if(A.length == 0) return 0;
+         int bb = 0;
+         int nn = A.length-1;
+         while(bb < nn){
+         	if(A[bb] == elem){
+         		A[bb] = A[nn];
+         		A[nn] = elem;
+         		nn--;
+         		//bb++;
+         	}else{
+         		bb++;
+         	}
+         	
+         }
+         if(A[bb] == elem){
+         	return nn;
+         }else{
+         	return nn+1;
+         }
+    }
+
+	public int removeDuplicates(int[] A) {
+		int len = A.length;
+		int base = A[0];
+		if(A.length == 0 || A.length == 1) return A.length;
+		int i = 1;
+		int realsize = 0;
+		while(i<len){
+			if(A[i] == base){
+				i++;
+				realsize++;
+				
+			}else{
+				base = A[i];
+				A[i-realsize] = A[i];
+				i++;
+			
+			}
+		}
+		return A.length - realsize;
+	}
     public static void main(String[] args){
     	System.out.println(new Solution().fourSum(new int[]{1 ,0 ,-1, 0, -2 ,2}, 0));
     }
