@@ -126,9 +126,10 @@ public class Solution {
     }
 
 	public int removeDuplicates(int[] A) {
+		if(A.length == 0 || A.length == 1) return A.length;
 		int len = A.length;
 		int base = A[0];
-		if(A.length == 0 || A.length == 1) return A.length;
+		
 		int i = 1;
 		int realsize = 0;
 		while(i<len){
